@@ -13,4 +13,11 @@ public class GameConstant {
 			{0, 1},
 			{-1, 0}
 	};
+	
+	public static final int[][] BOX_LOCATION = {
+			{400, 350},
+			{350, 300},
+			{400, 250},
+			{450, 300}
+	};
 }
