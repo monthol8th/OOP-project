@@ -7,13 +7,16 @@ public class GameLogicCalculator {
 	
 	LeftHandDirection leftHandDirection;
 	private Notes notes;
-
+	NoteRandomGenerator generator;
+	RightHandDirection rightHandDirection;
 
 	
 	public GameLogicCalculator(Notes notes){
 		leftHandDirection = new LeftHandDirection();
 		this.notes = notes;
-		notes.add(3, 0);
+		generator = new NoteRandomGenerator(notes);		
+		rightHandDirection = new RightHandDirection(notes, leftHandDirection);
+		
 
 	}
 	
@@ -21,7 +24,9 @@ public class GameLogicCalculator {
 		return leftHandDirection.getLeftKey();
 	}
 	public void update(float delta){
-		leftHandDirection.update(delta);		
+		leftHandDirection.update(delta);
+		rightHandDirection.update(delta);
+		generator.update(delta);
         notes.update(delta);
 
 	}

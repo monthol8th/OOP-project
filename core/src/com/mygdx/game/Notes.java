@@ -19,12 +19,12 @@ public class Notes {
 
 	public void add(int dir, int key){
 		Note note = new Note(dir, key);
-		noteList.get(0).add(note);
+		noteList.get(dir).add(note);
 	}
 	
 	public void update(float delta){
 		for(ArrayList<Note> list : noteList){
-			
+		//	System.out.print(list.size()+" ");
 			if(list.size()>0){
 				
 				for(Note note : list){
@@ -34,7 +34,18 @@ public class Notes {
 				if(list.get(0).isDead())list.remove(0);
 
 			}
+		//	System.out.println(" ");
 		}
+	}
+	
+	public void keyPress(int leftKey,int rightKey){
+		//System.out.print(noteList.get(leftKey).size()>0);
+		if(noteList.get(leftKey).size()>0){
+			if(noteList.get(leftKey).get(0).key == rightKey){
+				noteList.get(leftKey).remove(0);
+			}
+		}
+		
 	}
 	
 	public void render(float delta){
