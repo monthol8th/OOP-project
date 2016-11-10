@@ -7,4 +7,10 @@ public class GameConstant {
 	public static final int LEFTHAND_DIR_DOWN = 2;
 	public static final int LEFTHAND_DIR_RIGHT = 3;
 	
+	public static final int[][] MOVE_DIR = {
+			{0, -1},
+			{1, 0},
+			{0, 1},
+			{-1, 0}
+	};
 }
