@@ -12,7 +12,7 @@ public class GameRenderer {
 	private Texture[] squareImage;
 	private int[][] boxLocation;
 
-	private Note note;
+	private Note note1,note2;
 	
 	public GameRenderer(TiberSeptim tiberSeptim,GameLogicCalculator gameLogicCalculator){
 		this.tiberSeptim = tiberSeptim;
@@ -24,15 +24,19 @@ public class GameRenderer {
 
 		boxLocation = GameConstant.BOX_LOCATION;
 		
-		note = new Note(0);
+		note1 = new Note(0,0);
+		note2 = new Note(3,0);
 	}
 	
 	public void render(float delta){
         SpriteBatch batch = tiberSeptim.batch;
         batch.begin();
         for(int i=0;i<4;i++)batch.draw(squareImage[i==gameLogicCalculator.getLeftKey()?1:0], boxLocation[i][0], boxLocation[i][1] ,25 ,25);
-        note.update();
-        batch.draw(note.image,note.x,note.y,25,25);
+        note1.update(delta);
+        note2.update(delta);
+        batch.draw(note1.image,note1.x,note1.y,25,25);
+        batch.draw(note2.image,note2.x,note2.y,25,25);
+
         batch.end();	
 	}
 	
