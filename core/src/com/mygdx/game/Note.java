@@ -22,7 +22,8 @@ public class Note {
 	}
 	
 	public boolean isDead(){
-		return this.x == GameConstant.BOX_LOCATION[direction][0] && this.y == GameConstant.BOX_LOCATION[direction][1];
+		//System.out.println(this.x);
+		return Math.abs(this.x - 400) < 20 && Math.abs(this.y - 300) < 20;
 	}
 
 }

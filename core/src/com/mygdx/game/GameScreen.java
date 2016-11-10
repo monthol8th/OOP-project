@@ -11,10 +11,14 @@ public class GameScreen extends ScreenAdapter {
 	private GameRenderer gameRenderer;
 	public GameLogicCalculator gameLogicCalculator;
 	
+	public Notes notes;
+
+	
 	public GameScreen(TiberSeptim tiberSeptim) {
 		this.tiberSeptim = tiberSeptim;
-		gameLogicCalculator = new GameLogicCalculator();
-		gameRenderer = new GameRenderer(tiberSeptim,gameLogicCalculator);
+		notes = new Notes(tiberSeptim);
+		gameLogicCalculator = new GameLogicCalculator(notes);
+		gameRenderer = new GameRenderer(tiberSeptim,gameLogicCalculator,notes);
 
 	}
 

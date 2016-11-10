@@ -6,11 +6,14 @@ import com.badlogic.gdx.Input.Keys;
 public class GameLogicCalculator {
 	
 	LeftHandDirection leftHandDirection;
-	
+	private Notes notes;
+
 
 	
-	public GameLogicCalculator(){
+	public GameLogicCalculator(Notes notes){
 		leftHandDirection = new LeftHandDirection();
+		this.notes = notes;
+		notes.add(3, 0);
 
 	}
 	
@@ -19,5 +22,7 @@ public class GameLogicCalculator {
 	}
 	public void update(float delta){
 		leftHandDirection.update(delta);		
+        notes.update(delta);
+
 	}
 }

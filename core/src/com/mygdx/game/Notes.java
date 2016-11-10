@@ -2,30 +2,52 @@ package com.mygdx.game;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 public class Notes {
 	public ArrayList<ArrayList<Note>> noteList;
 	
-	public Notes(){
+	TiberSeptim tiberSeptim;
+	
+	public Notes(TiberSeptim tiberSeptim){
 		
-		noteList = new ArrayList<ArrayList<Note>>(4);
+		this.tiberSeptim = tiberSeptim;
+		noteList = new ArrayList<ArrayList<Note>>();
+		
+		for(int i=0;i<4;i++)noteList.add(new ArrayList<Note>());
 	}
 
 	public void add(int dir, int key){
 		Note note = new Note(dir, key);
-		noteList.get(dir).add(note);
+		noteList.get(0).add(note);
 	}
 	
 	public void update(float delta){
 		for(ArrayList<Note> list : noteList){
-			if(list.get(0).isDead()){
-				list.remove(0);
-			}
 			
-			for(Note note : list){
-				note.update(delta);
+			if(list.size()>0){
+				
+				for(Note note : list){
+					note.update(delta);
+				}
+				
+				if(list.get(0).isDead())list.remove(0);
+
 			}
-		
 		}
+	}
+	
+	public void render(float delta){
+        SpriteBatch batch = tiberSeptim.batch;
+        batch.begin();
+		for(ArrayList<Note> list : noteList){	
+			for(Note note : list){
+				batch.draw(note.image ,note.x, note.y , 25, 25);
+			}
+		}
+		
+		batch.end();
+		
 	}
 	
 	
