@@ -6,12 +6,16 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class GameRenderer {
 
 	private TiberSeptim tiberSeptim;
+	public GameLogicCalculator gameLogicCalculator;
+
 
 	private Texture[] squareImage;
 
 	
-	public GameRenderer(TiberSeptim tiberSeptim){
+	public GameRenderer(TiberSeptim tiberSeptim,GameLogicCalculator gameLogicCalculator){
 		this.tiberSeptim = tiberSeptim;
+		this.gameLogicCalculator = gameLogicCalculator;
+		
 		squareImage = new Texture[2];
 		squareImage[0] = new Texture("img/sq-yellow.png");
 		squareImage[1] = new Texture("img/sq-blue.png");

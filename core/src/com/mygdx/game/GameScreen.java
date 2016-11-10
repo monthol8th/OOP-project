@@ -9,14 +9,17 @@ public class GameScreen extends ScreenAdapter {
 	private TiberSeptim tiberSeptim;
 	
 	private GameRenderer gameRenderer;
+	public GameLogicCalculator gameLogicCalculator;
 	
 	public GameScreen(TiberSeptim tiberSeptim) {
 		this.tiberSeptim = tiberSeptim;
-		gameRenderer = new GameRenderer(tiberSeptim);
+		gameLogicCalculator = new GameLogicCalculator();
+		gameRenderer = new GameRenderer(tiberSeptim,gameLogicCalculator);
 
 	}
 
 	public void render(float delta){
+		gameLogicCalculator.update(delta);
         
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
