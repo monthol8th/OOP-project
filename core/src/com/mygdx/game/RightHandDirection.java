@@ -30,8 +30,7 @@ public class RightHandDirection {
 				rightKey = -1;
 			}
 			
-		}
-		else {
+		} else {
 			if(Gdx.input.isKeyPressed(Keys.UP)){
 				rightKey = 0;
 			} else if(Gdx.input.isKeyPressed(Keys.LEFT)){

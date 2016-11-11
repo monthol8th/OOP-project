@@ -31,10 +31,9 @@ public class GameRenderer {
         SpriteBatch batch = tiberSeptim.batch;
         batch.begin();
         for(int i=0;i<4;i++)
-        	batch.draw(squareImage[i==gameLogicCalculator.getLeftKey()?1:0], boxLocation[i][0], boxLocation[i][1] ,25 ,25);
+        	batch.draw(squareImage[i==gameLogicCalculator.getLeftKey()?1:0], boxLocation[i][0], boxLocation[i][1] ,GameConstant.noteSize ,GameConstant.noteSize);
         batch.end();	
         notes.render(delta);
-
 	}
 	
 }

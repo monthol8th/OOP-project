@@ -53,7 +53,7 @@ public class Notes {
         batch.begin();
 		for(ArrayList<Note> list : noteList){	
 			for(Note note : list){
-				batch.draw(note.image ,note.x, note.y , 25, 25);
+				batch.draw(note.image ,note.x, note.y , GameConstant.noteSize, GameConstant.noteSize);
 			}
 		}
 		
