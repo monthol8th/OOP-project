@@ -9,11 +9,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class TiberSeptim extends Game {
     public SpriteBatch batch;
-    
+    public boolean escPress;
+    public GameScreen gameScreen;
     @Override
     public void create () {
         batch = new SpriteBatch();
-        setScreen(new GameScreen(this));
+        gameScreen = new GameScreen(this);
+        setScreen(gameScreen);
+        escPress = false;
     }
  
     @Override
@@ -24,5 +27,17 @@ public class TiberSeptim extends Game {
     @Override
     public void dispose () {
         batch.dispose();
+    }
+    
+    public void resumeGame(){
+    	setScreen(gameScreen);
+    	escPress = true;
+
+    }
+    
+    public void pauseGame(){
+		System.out.println("pause");
+    	setScreen(new PauseScreen(this));
+    	escPress = true;
     }
 }

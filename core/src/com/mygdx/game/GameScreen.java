@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL20;
 
 
@@ -23,6 +24,11 @@ public class GameScreen extends ScreenAdapter {
 	}
 
 	public void render(float delta){
+		if(Gdx.input.isKeyPressed(Keys.ESCAPE)&&!tiberSeptim.escPress){
+			tiberSeptim.pauseGame();
+		} else if (tiberSeptim.escPress&&!Gdx.input.isKeyPressed(Keys.ESCAPE))
+			tiberSeptim.escPress = false;
+		
 		gameLogicCalculator.update(delta);
 		
         Gdx.gl.glClearColor(1, 1, 1, 1);
