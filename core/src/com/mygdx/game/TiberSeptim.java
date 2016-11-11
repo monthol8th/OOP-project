@@ -31,6 +31,7 @@ public class TiberSeptim extends Game {
     
     public void resumeGame(){
     	setScreen(gameScreen);
+    	gameScreen.music.play();
     	escPress = true;
 
     }
