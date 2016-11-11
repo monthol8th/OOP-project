@@ -1,7 +1,7 @@
 package com.mygdx.game;
 
 public class GameConstant {
-	public static float time = 1.0f;
+	public static float time = 4.0f;
 	public static int len = 1;
 	public static int noteSize = 30;
 

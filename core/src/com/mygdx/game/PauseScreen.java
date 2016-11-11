@@ -15,12 +15,11 @@ public class PauseScreen extends ScreenAdapter {
 		this.tiberSeptim = tiberSeptim;
 		font = new BitmapFont();
 		
-		System.out.println("create pause");
-		
 	}
 
 	
 	public void render(float delta){
+		resumeCheck();
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         SpriteBatch batch = tiberSeptim.batch;

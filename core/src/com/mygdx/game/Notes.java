@@ -14,7 +14,8 @@ public class Notes {
 		this.tiberSeptim = tiberSeptim;
 		noteList = new ArrayList<ArrayList<Note>>();
 		
-		for(int i=0;i<4;i++)noteList.add(new ArrayList<Note>());
+		for(int i=0;i<4;i++)
+			noteList.add(new ArrayList<Note>());
 	}
 
 	public void add(int dir, int key){
