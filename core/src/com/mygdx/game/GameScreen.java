@@ -27,18 +27,21 @@ public class GameScreen extends ScreenAdapter {
 	}
 
 	public void render(float delta){
-		if(Gdx.input.isKeyPressed(Keys.ESCAPE)&&!tiberSeptim.escPress){
-			music.pause();
-			tiberSeptim.pauseGame();
-		} else if (tiberSeptim.escPress&&!Gdx.input.isKeyPressed(Keys.ESCAPE))
-			tiberSeptim.escPress = false;
-		
-		
+		pauseCheck();
 		gameLogicCalculator.update(delta);
 		
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
  
         gameRenderer.render(delta);
+	}
+	
+	public void pauseCheck(){
+		if(Gdx.input.isKeyPressed(Keys.ESCAPE)&&!tiberSeptim.escPress){
+			music.pause();
+			tiberSeptim.pauseGame();
+		} else if (tiberSeptim.escPress&&!Gdx.input.isKeyPressed(Keys.ESCAPE))
+			tiberSeptim.escPress = false;
+		
 	}
 }

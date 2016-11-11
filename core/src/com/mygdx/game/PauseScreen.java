@@ -21,20 +21,20 @@ public class PauseScreen extends ScreenAdapter {
 
 	
 	public void render(float delta){
-		if(Gdx.input.isKeyPressed(Keys.ESCAPE)&&!tiberSeptim.escPress){
-			tiberSeptim.resumeGame();
-		} else if(tiberSeptim.escPress&&!Gdx.input.isKeyPressed(Keys.ESCAPE))
-			tiberSeptim.escPress = false;
-		
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         SpriteBatch batch = tiberSeptim.batch;
-    //:w System.out.println("x");
 
-        
         batch.begin();
         font.setColor(Color.RED);
         font.draw(batch, "PAUSE", 400, 300);
         batch.end();
+	}
+	
+	public void resumeCheck(){
+		if(Gdx.input.isKeyPressed(Keys.ESCAPE)&&!tiberSeptim.escPress){
+			tiberSeptim.resumeGame();
+		} else if(tiberSeptim.escPress&&!Gdx.input.isKeyPressed(Keys.ESCAPE))
+			tiberSeptim.escPress = false;		
 	}
 }
