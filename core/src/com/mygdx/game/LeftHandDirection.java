@@ -25,8 +25,7 @@ public class LeftHandDirection {
 					case GameConstant.LEFTHAND_DIR_RIGHT: haveLeftHandKeyPressed = Gdx.input.isKeyPressed(Keys.D); break;
 				}
 				
-			}
-			else {
+			} else {
 				isLeftHandKeyPressed[0] = Gdx.input.isKeyPressed(Keys.W);
 				isLeftHandKeyPressed[1] = Gdx.input.isKeyPressed(Keys.A);
 				isLeftHandKeyPressed[2] = Gdx.input.isKeyPressed(Keys.S);
@@ -34,14 +33,10 @@ public class LeftHandDirection {
 			
 				for(int i=0;i<4 & !haveLeftHandKeyPressed;i++){
 					haveLeftHandKeyPressed = isLeftHandKeyPressed[i];
-					if(haveLeftHandKeyPressed){
+					if(haveLeftHandKeyPressed)
 						leftKey = i; 
-					}
-				}
-				
+				}				
 			}
-
-
 		}
 	
 

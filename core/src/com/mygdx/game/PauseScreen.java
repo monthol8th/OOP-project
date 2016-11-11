@@ -29,7 +29,7 @@ public class PauseScreen extends ScreenAdapter {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         SpriteBatch batch = tiberSeptim.batch;
-        System.out.println("x");
+    //:w System.out.println("x");
 
         
         batch.begin();

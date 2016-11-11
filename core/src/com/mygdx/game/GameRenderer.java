@@ -30,7 +30,8 @@ public class GameRenderer {
 	public void render(float delta){
         SpriteBatch batch = tiberSeptim.batch;
         batch.begin();
-        for(int i=0;i<4;i++)batch.draw(squareImage[i==gameLogicCalculator.getLeftKey()?1:0], boxLocation[i][0], boxLocation[i][1] ,25 ,25);
+        for(int i=0;i<4;i++)
+        	batch.draw(squareImage[i==gameLogicCalculator.getLeftKey()?1:0], boxLocation[i][0], boxLocation[i][1] ,25 ,25);
         batch.end();	
         notes.render(delta);
 
