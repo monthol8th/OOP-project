@@ -2,8 +2,10 @@ package com.mygdx.game;
 
 public class GameConstant {
 	public static float time = 4.0f;
+	public static float timeNow = -1.0f;
 	public static int len = 1;
 	public static int noteSize = 30;
+	public static int color[]={255,255,255};
 
 	
 	public static final int LEFTHAND_DIR_UP = 0;

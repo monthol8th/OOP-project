@@ -8,10 +8,12 @@ public class Notes {
 	public ArrayList<ArrayList<Note>> noteList;
 	
 	TiberSeptim tiberSeptim;
+	Score score;
 	
-	public Notes(TiberSeptim tiberSeptim){
+	public Notes(TiberSeptim tiberSeptim,Score score){
 		
 		this.tiberSeptim = tiberSeptim;
+		this.score= score;
 		noteList = new ArrayList<ArrayList<Note>>();
 		
 		for(int i=0;i<4;i++)
@@ -21,6 +23,10 @@ public class Notes {
 	public void add(int dir, int key){
 		Note note = new Note(dir, key);
 		noteList.get(dir).add(note);
+	}
+	
+	public void add(Note note){
+		noteList.get(note.direction).add(note);
 	}
 	
 	public void update(float delta){
@@ -43,6 +49,7 @@ public class Notes {
 		//System.out.print(noteList.get(leftKey).size()>0);
 		if(noteList.get(leftKey).size()>0){
 			if(noteList.get(leftKey).get(0).key == rightKey){
+				score.addScore(noteList.get(leftKey).get(0));
 				noteList.get(leftKey).remove(0);
 			}
 		}

@@ -14,25 +14,33 @@ public class GameScreen extends ScreenAdapter {
 	public GameLogicCalculator gameLogicCalculator;
 	public Music music;
 	public Notes notes;
-
+	public Score score;
+	public boolean start;
 	
 	public GameScreen(TiberSeptim tiberSeptim) {
 		this.tiberSeptim = tiberSeptim;
-		notes = new Notes(tiberSeptim);
+		score = new Score(tiberSeptim);
+		notes = new Notes(tiberSeptim,score);
 		gameLogicCalculator = new GameLogicCalculator(notes);
-		gameRenderer = new GameRenderer(tiberSeptim,gameLogicCalculator,notes);
-
-		music = Gdx.audio.newMusic(Gdx.files.internal("MoonlightSonata.mp3"));
-		music.play();
+		gameRenderer = new GameRenderer(tiberSeptim,gameLogicCalculator,notes,score);
+		
+		start = false;
+		music = Gdx.audio.newMusic(Gdx.files.internal("music/Force.mp3"));
 	}
 
 	public void render(float delta){
 		pauseCheck();
+		
+		GameConstant.timeNow+=delta;
+		if(!start && GameConstant.timeNow >= GameConstant.time){
+			music.play();
+			start = true;
+		}
 		gameLogicCalculator.update(delta);
 		
-        Gdx.gl.glClearColor(1, 1, 1, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
- 
+        //Gdx.gl.glClearColor(GameConstant.color[0]/255.0f, GameConstant.color[1]/255.0f, GameConstant.color[1]/255.0f, 1);
+      //  Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
         gameRenderer.render(delta);
 	}
 	

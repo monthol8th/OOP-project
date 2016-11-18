@@ -7,14 +7,14 @@ public class GameLogicCalculator {
 	
 	LeftHandDirection leftHandDirection;
 	private Notes notes;
-	NoteRandomGenerator generator;
+	public NoteGenerator generator;
 	RightHandDirection rightHandDirection;
 
 	
 	public GameLogicCalculator(Notes notes){
 		leftHandDirection = new LeftHandDirection();
 		this.notes = notes;
-		generator = new NoteRandomGenerator(notes);		
+		generator = new NoteGenerator(notes);		
 		rightHandDirection = new RightHandDirection(notes, leftHandDirection);
 		
 
